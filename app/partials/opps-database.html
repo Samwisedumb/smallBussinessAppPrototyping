@@ -1,0 +1,24 @@
+<h2>Opportunities Database</h2>
+<div>
+  <div>
+    Search: <input ng-model="query">
+    <br>
+    Number: <input ng-model="numOpps" ng-pattern="/^\d+$/">
+  </div>
+  <div>
+    <table class="CSSTableGenerator">
+      <tbody>
+        <tr>
+          <th ng-repeat="header in scheme">
+            {{ header }}
+          </th>
+        </tr>
+        <tr ng-repeat="opp in opps | filter:query | limitTo:numOpps">
+          <td ng-repeat="header in scheme">
+            {{ opp[header] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
